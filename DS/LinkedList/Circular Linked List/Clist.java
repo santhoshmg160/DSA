@@ -119,7 +119,7 @@ public class Clist {
             i++;
             temp = temp.next;
         }
-        if(i>=length) {
+        if(i==length) {
             System.out.println("The given element is not found in LL");
         }
     }
