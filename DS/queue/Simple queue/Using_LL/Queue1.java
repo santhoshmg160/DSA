@@ -1,28 +1,28 @@
-class Stack1 {
-    Node top = null;
+class Queue1 {
+    Node front;
+    Node rear;
+
     boolean isEmpty() {
-        if(top==null) {
+        if(rear == null || front == null) {
             return false;
         }
         return true;
     }
 
-    void push(int data) {
+    void enqueue(int data) {
         Node newNode = new Node();
         newNode.data = data;
-        if(top == null) {
-            top = newNode;
+        if(front == null) {
+            front = rear = newNode;
         } else {
-            newNode.next = top;
-            top=newNode;
-            System.out.println("Element insert Successfully");
+            rear.next = newNode;
+            rear = newNode;
         }
-    } 
+    }
 
-    void pop() {
+    void dequeue() {
         if(isEmpty()) {
-            top = top.next;
-            System.out.println("Last Element Deleted Successfully");
+            front = front.next;
         } else {
             System.out.println("Underflow");
         }
@@ -30,7 +30,7 @@ class Stack1 {
 
     void peek() {
         if(isEmpty()) {
-            System.out.println(top.data);
+            System.out.println(front.data); 
         } else {
             System.out.println("Underflow");
         }
@@ -38,16 +38,16 @@ class Stack1 {
 
     void display() {
         if(isEmpty()) {
-            Node i;
-            for(i=top;i.next!=null;i=i.next) {
-                System.out.print(i.data + "->");
+            Node temp;
+            for(temp = front;temp.next!=null;temp=temp.next) {
+                System.out.print(temp.data + "->");
             }
-            System.out.print(i.data);
+            System.out.print(temp.data);
             System.out.println();
         } else {
             System.out.println("Underflow");
         }
-    }   
+    }
 }
 
 class Node {

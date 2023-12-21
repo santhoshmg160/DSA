@@ -1,15 +1,15 @@
 import java.util.*;
 class Main1 {
     static Scanner sc = new Scanner(System.in);
-    static Stack1 stack = new Stack1();
+    static Queue1 queue = new Queue1();
 
     public static void main(String[] args) {
         getChoice();
     }
 
     static void getChoice() {
-        System.out.println("1. PUSH OPERATION");
-        System.out.println("2. POP OPERATION");
+        System.out.println("1. ENQUEUE OPERATION");
+        System.out.println("2. DEQUEUE OPERATION");
         System.out.println("3. PEEK OPERATION");
         System.out.println("4. DISPLAY");
         System.out.print("Enter Choice: ");
@@ -20,21 +20,21 @@ class Main1 {
                 System.out.print("Enter Data: ");
                 int data = sc.nextInt();
                 System.out.println();
-                stack.push(data);
-                stack.display();
+                queue.enqueue(data);
+                queue.display();
                 break;
 
             case 2:
-                stack.pop();
-                stack.display();
+                queue.dequeue();
+                queue.display();
                 break;
 
             case 3:
-                stack.peek();
+                queue.peek();
                 break;
 
             case 4:
-                stack.display();
+                queue.display();
                 break;
         }
         getChoice();
