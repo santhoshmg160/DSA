@@ -9,9 +9,9 @@ class Queue {
             front = -1;
         }
         if(rear == -1 && front == -1) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     boolean isFull() {
@@ -20,13 +20,13 @@ class Queue {
         }
         
         if(rear == length-1 || (rear==front && rear!=-1)) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     void enqueue(int data) {
-        if(isFull()) {
+        if(!isFull()) {
             rear = rear + 1;
             arr[rear] = data;
             System.out.println("Element Inserted Successfully");
@@ -36,7 +36,7 @@ class Queue {
     }
 
     void dequeue() {
-        if(isEmpty()) {
+        if(!isEmpty()) {
             front = front +1;
             if(front == rear) {
                 front = rear = -1;
@@ -48,7 +48,7 @@ class Queue {
     }
 
     void peek() {
-        if(isEmpty()) {
+        if(!isEmpty()) {
             System.out.println(arr[front+1]); 
         } else {
             System.out.println("Underflow");
@@ -56,7 +56,7 @@ class Queue {
     }
 
     void display() {
-        if(isEmpty()) {
+        if(!isEmpty()) {
             if(rear>front) {
                 for(int i=rear;i>front;i--) {
                     System.out.print(arr[i] + " ");
